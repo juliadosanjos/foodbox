@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Foodbox</title>
+
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+            body {
+                background: lightgray;
+            }
+
+            .topo {
+                background: #CF2B2B;
+                padding: 15px;
+                color: white;
+                text-align: left;
+                border-radius: 7px;
+            }
+
+            .produto {
+                background: white;
+                padding: 15px;
+                border-radius: 7px;
+                margin-bottom: 10px;
+                font-family: 'Roboto', sans-serif;
+                cursor: pointer;
+                border: 5px solid white;
+            }
+
+            .botao {
+                font-family: 'Roboto', sans-serif;
+                text-align: center;
+                color: white;
+                font-weight: bold;
+                font-size: 20px;
+                padding: 15px;
+                margin-top: 30px;
+                margin-bottom: 100px;
+                border-radius: 35px;
+                background-color: #0B940B;
+                background-size: 40px;
+                cursor: pointer;
+            }
+
+            h1 {
+                margin: 0;
+                font-family: 'Righteous', cursive;
+                font-size: 40px;
+            }
+
+            h2 {
+                margin: 0;
+                font-family: 'Roboto', sans-serif;
+                font-size: 15px;
+            }
+
+            h3 {
+                font-family: 'Righteous', cursive;
+                font-size: 25px;
+                margin-bottom: 10px;
+            }
+
+            h4 {
+                font-size: 20px;
+                margin-top: 10px;
+                margin-bottom: 10px;
+            }
+
+            img {
+                width: 130px;
+                float: right;
+                margin: 15px;
+                border-radius: 5px;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="topo">
+            <h1>FoodBox</h1>
+            <h2>Monte seu box e receba em 15 minutos!</h2>
+        </div>
+
+        <h3>Primeiro, seu prato</h3>
+        <div id="frango"class="produto" onclick="escolherFrango()">
+            <img src="image/frango.jpg">
+            <h4>Frango Yin-Yang</h4>
+            <p>Um pouco de batata, um pouco de salada</p>
+            <p><strong>R$ 19,99</strong></p>
+        </div>
+        <div id="carne" class="produto" onclick="escolherCarne()">
+            <img src="image/carne.jpg">
+            <h4>Carne e salada</h4>
+            <p>Partida ao meio pra parecer mais carne</p>
+            <p><strong>R$ 24,90</strong></p>
+        </div>
+
+        <h3>Agora, sua bebida</h3>
+        <div id="coca" class="produto" onclick="escolherCoca()">
+            <img src="image/coca.jpg">
+            <h4>Coca-cola gelada</h4>
+            <p>Normal, zero ou stevia. Vai na sorte</p>
+            <p><strong>R$ 5,90</strong></p>
+        </div>
+        <div id="refresco" class="produto" onclick="escolherRefresco()">
+            <img src="image/refresco.jpg">
+            <h4>Refresco</h4>
+            <p>Podia ser suco, mas leva água</p>
+            <p><strong>R$ 3,90</strong></p>
+        </div>
+
+        <h3>Por fim, sua sobremesa</h3>
+        <div id="pudim" class="produto"  onclick="escolherPudim()">
+            <img src="image/pudim.jpg">
+            <h4>Pudim</h4>
+            <p>Apenas um lindo e brilhante pudim</p>
+            <p><strong>R$ 7,90</strong></p>
+        </div>
+        <div id="sorvete" class="produto" onclick="escolherSorvete()">
+            <img src="image/sorvete.jpg">
+            <h4>Sorvete bem gelado</h4>
+            <p>Três bolinhas como na foto</p>
+            <p><strong>R$ 6,90</strong></p>
+        </div>
+
+        <div class="botao" onclick="finalizarPedido()">
+            Finalizar pedido
+        </div>
+    
+        <script>
+            let prato, bebida, sobremesa
+            
+            function escolherFrango() {
+                document.getElementById("frango").style.borderColor = "green"
+                document.getElementById("carne").style.borderColor = "white"
+                prato = "Frango"
+            }
+
+            function escolherCarne() {
+                document.getElementById("carne").style.borderColor = "green"
+                document.getElementById("frango").style.borderColor = "white"
+                prato = "Carne"
+            }
+
+            function escolherCoca() {
+                document.getElementById("coca").style.borderColor = "green"
+                document.getElementById("refresco").style.borderColor = "white"
+                bebida = "Coca"
+            }
+
+            function escolherRefresco() {
+                document.getElementById("refresco").style.borderColor = "green"
+                document.getElementById("coca").style.borderColor = "white"
+                bebida = "Refresco"
+            }
+
+            function escolherPudim() {
+                document.getElementById("pudim").style.borderColor = "green"
+                document.getElementById("sorvete").style.borderColor = "white"
+                sobremesa = "Pudim"
+            }
+
+            function escolherSorvete() {
+                document.getElementById("sorvete").style.borderColor = "green"
+                document.getElementById("pudim").style.borderColor = "white"
+                sobremesa = "Sorvete"
+            }
+
+            function finalizarPedido() {
+                let mensagem = "Olá, gostaria de montar um combo: " + prato + ", " + bebida + " e " + sobremesa + "."
+                window.open("https://wa.me/+558498459598?text=" + mensagem)
+            }
+        </script>
+    </body>
+</html>
